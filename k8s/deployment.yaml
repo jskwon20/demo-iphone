@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iphone-17-site
+  namespace: default
+  labels:
+    app: iphone-17-site
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: iphone-17-site
+  template:
+    metadata:
+      labels:
+        app: iphone-17-site
+    spec:
+      containers:
+        - name: iphone-17-site
+          # ⚠️ REPLACE THIS WITH YOUR ECR IMAGE URI
+          image: 123456789012.dkr.ecr.ap-northeast-2.amazonaws.com/iphone-17-site:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "500m"
+              memory: "1Gi"
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+            initialDelaySeconds: 15
+            periodSeconds: 20
