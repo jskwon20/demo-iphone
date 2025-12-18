@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: iphone-17-site
-          image: public.ecr.aws/o8h3c1q6/demo-app:latest
+          image: public.ecr.aws/o8h3c1q6/demo-app:553d2d1319918662d5a7a52af7149923a48f04ea
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
