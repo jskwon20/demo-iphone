@@ -17,8 +17,7 @@ spec:
     spec:
       containers:
         - name: iphone-17-site
-          # ⚠️ REPLACE THIS WITH YOUR ECR IMAGE URI
-          image: 123456789012.dkr.ecr.ap-northeast-2.amazonaws.com/iphone-17-site:latest
+          image: public.ecr.aws/o8h3c1q6/demo-app:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
