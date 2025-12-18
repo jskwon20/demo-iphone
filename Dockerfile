@@ -1,5 +1,5 @@
 
-FROM node:18-slim AS base
+FROM node:20-slim AS base
 # No need for libc6-compat on debian
 
 # Install dependencies only when needed
